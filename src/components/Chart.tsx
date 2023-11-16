@@ -65,6 +65,7 @@ const Chart = ({ station, company, type }: any) => {
       setFeatureLayer(utilityLineLayer1);
     } else if (type.name === undefined) {
       // Point + Line
+      console.log(station, '; ', company);
       generatePointLineChartData({ station, company }).then((response: any) => {
         setChartData(response);
       });
@@ -379,7 +380,6 @@ const Chart = ({ station, company, type }: any) => {
               //arrLviews.push(layerView);
               pointFeatureLayer.queryFeatures(query).then((results: any) => {
                 if (results.features.length === 0) {
-                  console.log('no utility point');
                 } else {
                   const lengths = results.features;
                   const rows = lengths.length;
@@ -414,16 +414,25 @@ const Chart = ({ station, company, type }: any) => {
                 }
               });
               layerView.filter = new FeatureFilter({
-                where: station === undefined ? sqlExpression : sqlExpressionWithCP,
+                where:
+                  station === undefined || station === '' ? sqlExpression : sqlExpressionWithCP,
+              });
+
+              // For initial state, we need to add this
+              view.on('click', () => {
+                layerView.filter = new FeatureFilter({
+                  where: undefined,
+                });
+                highlightSelect !== undefined ? highlightSelect.remove() : console.log('');
               });
             });
 
+            let highlightSelect2: any;
             view.whenLayerView(lineFeatureLayer).then((layerView: any) => {
               //arrLviews.push(layerView);
-              let highlightSelect2: any;
+
               lineFeatureLayer.queryFeatures(query).then((results: any) => {
                 if (results.features.length === 0) {
-                  console.log('no utility point');
                 } else {
                   const lengths = results.features;
                   const rows = lengths.length;
@@ -458,7 +467,15 @@ const Chart = ({ station, company, type }: any) => {
                 }
               });
               layerView.filter = new FeatureFilter({
-                where: station === undefined ? sqlExpression : sqlExpressionWithCP,
+                where:
+                  station === undefined || station === '' ? sqlExpression : sqlExpressionWithCP,
+              });
+              // For initial state, we need to add this
+              view.on('click', () => {
+                layerView.filter = new FeatureFilter({
+                  where: undefined,
+                });
+                highlightSelect2 !== undefined ? highlightSelect2.remove() : console.log('');
               });
             });
           });
