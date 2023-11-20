@@ -42,7 +42,7 @@ const ConstructionBoundaryFill = new UniqueValueRenderer({
 
 export const constructionBoundaryLayer = new FeatureLayer({
   portalItem: {
-    id: 'b0cf28b499a54de7b085725bca08deee',
+    id: 'c34277793d164f248abb0926963ae92d',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -132,7 +132,7 @@ let stationBoxRenderer = new UniqueValueRenderer({
 
 export const stationBoxLayer = new FeatureLayer({
   portalItem: {
-    id: 'b0cf28b499a54de7b085725bca08deee',
+    id: 'c34277793d164f248abb0926963ae92d',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -183,14 +183,14 @@ var labelClass = new LabelClass({
   },
 });
 
-/*
-export const stationLayer = new SceneLayer({
+export const stationLayer = new FeatureLayer({
   portalItem: {
-    id: '6d8d606fee5841ea80fa133adbb028fc',
+    id: 'c34277793d164f248abb0926963ae92d',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
+  layerId: 1,
   title: 'Station',
   labelingInfo: [labelClass],
   renderer: stationRenderer,
@@ -202,7 +202,6 @@ export const stationLayer = new SceneLayer({
   },
 });
 stationLayer.listMode = 'hide';
-*/
 
 // * Utility Point * //
 function customSymbol3D(name: string) {
@@ -391,7 +390,7 @@ const utilPointSymbolRenderer = new UniqueValueRenderer({
 
 export const utilityPointLayer = new FeatureLayer({
   portalItem: {
-    id: 'ff7177760e1c43478c1ad6088c48cfa8',
+    id: '3b6594c464054a6285d7daa610f46716',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -622,7 +621,7 @@ const utilPointStatusLabel = new LabelClass({
 
 export const utilityPointLayer1 = new FeatureLayer({
   portalItem: {
-    id: 'ff7177760e1c43478c1ad6088c48cfa8',
+    id: '3b6594c464054a6285d7daa610f46716',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -760,7 +759,7 @@ const utilLineStatusRenderer = new UniqueValueRenderer({
 
 export const utilityLineLayer = new FeatureLayer({
   portalItem: {
-    id: 'ff7177760e1c43478c1ad6088c48cfa8',
+    id: '3b6594c464054a6285d7daa610f46716',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -902,7 +901,7 @@ const utilityLineLabelClass = new LabelClass({
 
 export const utilityLineLayer1 = new FeatureLayer({
   portalItem: {
-    id: 'ff7177760e1c43478c1ad6088c48cfa8',
+    id: '3b6594c464054a6285d7daa610f46716',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
