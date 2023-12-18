@@ -161,7 +161,7 @@ function App() {
             style={{ marginBottom: 'auto', marginTop: 'auto' }}
           />
           <b className="headerTitle">MMSP UTILITY</b>
-          <div className="date">As of December 11, 2023</div>
+          <div className="date">As of December 18, 2023</div>
 
           <div className="dropdownFilter">
             <div className="dropdownFilterLayout">
