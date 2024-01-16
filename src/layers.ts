@@ -1,23 +1,27 @@
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
-import SceneLayer from '@arcgis/core/layers/SceneLayer';
 import LabelClass from '@arcgis/core/layers/support/LabelClass';
 import SimpleFillSymbol from '@arcgis/core/symbols/SimpleFillSymbol';
 import UniqueValueRenderer from '@arcgis/core/renderers/UniqueValueRenderer';
-import SimpleRenderer from '@arcgis/core/renderers/SimpleRenderer';
 import {
   PointSymbol3D,
   IconSymbol3DLayer,
-  SimpleMarkerSymbol,
   WebStyleSymbol,
   LineSymbol3D,
-  MeshSymbol3D,
-  FillSymbol3DLayer,
   PathSymbol3DLayer,
 } from '@arcgis/core/symbols';
-import SolidEdges3D from '@arcgis/core/symbols/edges/SolidEdges3D';
 import SizeVariable from '@arcgis/core/renderers/visualVariables/SizeVariable';
 import RotationVariable from '@arcgis/core/renderers/visualVariables/RotationVariable';
 import { labelSymbol3DLine } from './Label';
+
+/* Standalone table for Dates */
+export const dateTable = new FeatureLayer({
+  portalItem: {
+    id: '8a7097f019e14e488e31235519a963fd',
+    portal: {
+      url: 'https://gis.railway-sector.com/portal',
+    },
+  },
+});
 
 /* Construction Boundary */
 
