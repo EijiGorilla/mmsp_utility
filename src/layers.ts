@@ -16,7 +16,7 @@ import { labelSymbol3DLine } from './Label';
 /* Standalone table for Dates */
 export const dateTable = new FeatureLayer({
   portalItem: {
-    id: '8a7097f019e14e488e31235519a963fd',
+    id: 'a084d9cae5234d93b7aa50f7eb782aec',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -46,7 +46,7 @@ const ConstructionBoundaryFill = new UniqueValueRenderer({
 
 export const constructionBoundaryLayer = new FeatureLayer({
   portalItem: {
-    id: 'c34277793d164f248abb0926963ae92d',
+    id: '0c172b82ddab44f2bb439542dd75e8ae',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -136,12 +136,12 @@ let stationBoxRenderer = new UniqueValueRenderer({
 
 export const stationBoxLayer = new FeatureLayer({
   portalItem: {
-    id: 'c34277793d164f248abb0926963ae92d',
+    id: '52d4f29105934e3f95f6b39c7e5fba6e',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 8,
+  layerId: 2,
   renderer: stationBoxRenderer,
   minScale: 150000,
   maxScale: 0,
@@ -189,7 +189,7 @@ var labelClass = new LabelClass({
 
 export const stationLayer = new FeatureLayer({
   portalItem: {
-    id: 'c34277793d164f248abb0926963ae92d',
+    id: '52d4f29105934e3f95f6b39c7e5fba6e',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -394,12 +394,12 @@ const utilPointSymbolRenderer = new UniqueValueRenderer({
 
 export const utilityPointLayer = new FeatureLayer({
   portalItem: {
-    id: '3b6594c464054a6285d7daa610f46716',
+    id: '8d700179fca44aef967ea78a01fc4279',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 4,
+  layerId: 1,
   title: 'Point Symbol',
   outFields: ['*'],
   renderer: utilPointSymbolRenderer,
@@ -625,12 +625,12 @@ const utilPointStatusLabel = new LabelClass({
 
 export const utilityPointLayer1 = new FeatureLayer({
   portalItem: {
-    id: '3b6594c464054a6285d7daa610f46716',
+    id: '8d700179fca44aef967ea78a01fc4279',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 4,
+  layerId: 1,
   title: 'Point Status',
   outFields: ['*'],
   renderer: utilityStatusRenderer,
@@ -763,12 +763,12 @@ const utilLineStatusRenderer = new UniqueValueRenderer({
 
 export const utilityLineLayer = new FeatureLayer({
   portalItem: {
-    id: '3b6594c464054a6285d7daa610f46716',
+    id: '8d700179fca44aef967ea78a01fc4279',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 5,
+  layerId: 2,
   title: 'Line Symbol ', // Relocation PLan?
   elevationInfo: {
     mode: 'relative-to-ground', // original was "relative-to-scene"
@@ -905,12 +905,12 @@ const utilityLineLabelClass = new LabelClass({
 
 export const utilityLineLayer1 = new FeatureLayer({
   portalItem: {
-    id: '3b6594c464054a6285d7daa610f46716',
+    id: '8d700179fca44aef967ea78a01fc4279',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 5,
+  layerId: 2,
   title: 'Line Status',
   elevationInfo: {
     mode: 'relative-to-ground', // original was "relative-to-scene"
