@@ -52,7 +52,7 @@ export const constructionBoundaryLayer = new FeatureLayer({
     },
   },
   layerId: 4,
-  outFields: ['*'],
+
   renderer: ConstructionBoundaryFill,
   definitionExpression: 'MappingBoundary = 1',
   title: 'Construction Boundary',
@@ -146,7 +146,7 @@ export const stationBoxLayer = new FeatureLayer({
   minScale: 150000,
   maxScale: 0,
   title: 'Station Box',
-  outFields: ['*'],
+
   popupEnabled: false,
   elevationInfo: {
     mode: 'on-the-ground',
@@ -401,7 +401,7 @@ export const utilityPointLayer = new FeatureLayer({
   },
   layerId: 1,
   title: 'Point Symbol',
-  outFields: ['*'],
+
   renderer: utilPointSymbolRenderer,
   elevationInfo: {
     mode: 'relative-to-ground', // original was "relative-to-scene"
@@ -632,7 +632,7 @@ export const utilityPointLayer1 = new FeatureLayer({
   },
   layerId: 1,
   title: 'Point Status',
-  outFields: ['*'],
+
   renderer: utilityStatusRenderer,
   elevationInfo: {
     mode: 'relative-to-ground', // original was "relative-to-scene"
@@ -778,7 +778,7 @@ export const utilityLineLayer = new FeatureLayer({
     unit: 'meters',
     //offset: 0
   },
-  outFields: ['*'],
+
   popupTemplate: {
     title: '<h5>{comp_agency}</h5>',
     lastEditInfoEnabled: false,
@@ -920,7 +920,7 @@ export const utilityLineLayer1 = new FeatureLayer({
     unit: 'meters',
     //offset: 0
   },
-  outFields: ['*'],
+
   renderer: utilLineStatusRenderer,
   labelingInfo: [utilityLineLabelClass],
   popupTemplate: {
