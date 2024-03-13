@@ -137,9 +137,10 @@ function App() {
       ...defaultStyles,
       backgroundColor: '#2b2b2b',
       borderColor: '#949494',
-      height: 35,
-      width: '170px',
+      // height: 35,
+      // width: '170px',
       color: '#ffffff',
+      touchUi: false,
     }),
     singleValue: (defaultStyles: any) => ({ ...defaultStyles, color: '#fff' }),
   };
@@ -158,7 +159,13 @@ function App() {
         <header
           slot="header"
           id="header-title"
-          style={{ display: 'flex', width: '100%', padding: '0 1rem' }}
+          style={{
+            display: 'flex',
+            width: '100%',
+            padding: '0 1rem',
+            borderStyle: 'solid',
+            borderWidth: 1,
+          }}
         >
           <img
             src="https://EijiGorilla.github.io/Symbols/Projec_Logo/DOTr_Logo_v2.png"

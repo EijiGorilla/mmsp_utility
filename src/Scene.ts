@@ -6,7 +6,7 @@ import Search from '@arcgis/core/widgets/Search';
 import Expand from '@arcgis/core/widgets/Expand';
 import GroupLayer from '@arcgis/core/layers/GroupLayer';
 import Compass from '@arcgis/core/widgets/Compass';
-
+import Locate from '@arcgis/core/widgets/Locate.js';
 import {
   constructionBoundaryLayer,
   stationBoxLayer,
@@ -134,3 +134,9 @@ const searchExpand = new Expand({
 view.ui.add(searchExpand, {
   position: 'top-right',
 });
+
+const locateBtn = new Locate({
+  view,
+  // container: undefined,
+});
+view.ui.add(locateBtn, { position: 'top-right' });
