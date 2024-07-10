@@ -52,6 +52,14 @@ function App() {
   const [typeList, setTypeList] = useState([]);
   const [companySelected, setCompanySelected] = useState({ name: '' });
 
+  //
+  const [utilityPointLayerLoaded, setUtilityPointLayerLoaded] = useState<any>();
+  useEffect(() => {
+    utilityPointLayer.load().then(() => {
+      setUtilityPointLayerLoaded(utilityPointLayer.loadStatus);
+    });
+  });
+
   // Create dropdown list//
   useEffect(() => {
     const dropdownData = new DropDownData({
@@ -149,12 +157,14 @@ function App() {
     <>
       <CalciteShell>
         <CalciteTabs slot="panel-end" style={{ width: '25vw' }}>
-          <Chart
-            station={Station === null ? '' : Station.field1}
-            company={companySelected.name}
-            type={type === null ? '' : type}
-            typelist={typeList}
-          />
+          {utilityPointLayerLoaded === 'loaded' && (
+            <Chart
+              station={Station === null ? '' : Station.field1}
+              company={companySelected.name}
+              type={type === null ? '' : type}
+              typelist={typeList}
+            />
+          )}
         </CalciteTabs>
         <header
           slot="header"
