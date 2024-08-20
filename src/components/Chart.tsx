@@ -66,7 +66,6 @@ const Chart = ({ station, company, type }: any) => {
       setFeatureLayer(utilityLineLayer1);
     } else if (type.name === undefined) {
       // Point + Line
-      console.log(station, '; ', company);
       generatePointLineChartData({ station, company }).then((response: any) => {
         setChartData(response);
       });

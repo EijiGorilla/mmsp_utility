@@ -352,8 +352,8 @@ export async function generateUtilLineChartData({ station, company }: any) {
   // stationStructureLayer.definitionExpression = qStation;
   utilityLineLayer.visible = true;
   utilityLineLayer1.visible = true;
-  utilityLineLayer.visible = false;
-  utilityLineLayer1.visible = false;
+  utilityPointLayer.visible = false;
+  utilityPointLayer1.visible = false;
 
   // zoom to layer
   zoomToLayer(utilityLineLayer);
@@ -527,6 +527,7 @@ export async function generatePointLineChartData({ station, company }: any) {
   ];
 
   // Query
+  const defaultExpression = '1=1';
   const qStation = "Station1 = '" + station + "'";
   const qCompany = "Company = '" + company + "'";
   const qStationCompany = qStation + ' AND ' + qCompany;
@@ -540,11 +541,11 @@ export async function generatePointLineChartData({ station, company }: any) {
   };
 
   if (station === '') {
-    query.where = '1=1';
-    utilityPointLayer.definitionExpression = '1=1';
-    utilityPointLayer1.definitionExpression = '1=1';
-    utilityLineLayer.definitionExpression = '1=1';
-    utilityLineLayer1.definitionExpression = '1=1';
+    query.where = defaultExpression;
+    utilityPointLayer.definitionExpression = defaultExpression;
+    utilityPointLayer1.definitionExpression = defaultExpression;
+    utilityLineLayer.definitionExpression = defaultExpression;
+    utilityLineLayer1.definitionExpression = defaultExpression;
     // stationStructureLayer.definitionExpression = '1=1';
     layerVisibleTrue();
   } else {
