@@ -478,7 +478,7 @@ const Chart = ({ station, company, type }: any) => {
                     objectIds: objID,
                   });
 
-                  pointFeatureLayer.queryExtent(queryExt).then((result: any) => {
+                  pointFeatureLayer1.queryExtent(queryExt).then((result: any) => {
                     if (result.extent) {
                       view.goTo(result.extent);
                     }
@@ -582,7 +582,7 @@ const Chart = ({ station, company, type }: any) => {
                     objectIds: objID,
                   });
 
-                  lineFeatureLayer.queryExtent(queryExt).then((result: any) => {
+                  lineFeatureLayer1.queryExtent(queryExt).then((result: any) => {
                     if (result.extent) {
                       view.goTo(result.extent);
                     }
