@@ -5,11 +5,15 @@ import { map, view, basemaps, layerList } from './Scene';
 import './index.css';
 import './App.css';
 import '@esri/calcite-components/dist/components/calcite-shell';
+import '@esri/calcite-components/dist/components/calcite-shell-panel';
 import '@esri/calcite-components/dist/components/calcite-list';
 import '@esri/calcite-components/dist/components/calcite-list-item';
 import '@esri/calcite-components/dist/components/calcite-shell-panel';
 import '@esri/calcite-components/dist/components/calcite-action';
 import '@esri/calcite-components/dist/components/calcite-action-bar';
+import '@esri/calcite-components/dist/components/calcite-switch';
+import '@esri/calcite-components/dist/components/calcite-tabs';
+import '@esri/calcite-components/dist/components/calcite-panel';
 import '@esri/calcite-components/dist/calcite/calcite.css';
 import {
   CalciteShell,
@@ -175,6 +179,7 @@ function App() {
             padding: '0 1rem',
             borderStyle: 'solid',
             borderWidth: 1,
+            height: '70px',
           }}
         >
           <img
@@ -281,14 +286,7 @@ function App() {
             style={{ width: '18vw' }}
             hidden
           >
-            <CalciteList>
-              <CalciteListItem
-                label=""
-                description=""
-                value="land-acquisition"
-                ref={layerListDiv}
-              ></CalciteListItem>
-            </CalciteList>
+            <div id="layers-container" ref={layerListDiv}></div>
           </CalcitePanel>
 
           <CalcitePanel
@@ -298,14 +296,7 @@ function App() {
             style={{ width: '18vw' }}
             hidden
           >
-            <CalciteList>
-              <CalciteListItem
-                label=""
-                description=""
-                value="basemaps"
-                ref={calcitePanelBasemaps}
-              ></CalciteListItem>
-            </CalciteList>
+            <div id="basemap-container" ref={calcitePanelBasemaps}></div>
           </CalcitePanel>
 
           <CalcitePanel heading="Description" data-panel-id="information" hidden>

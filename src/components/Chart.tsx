@@ -25,6 +25,7 @@ import {
   thousands_separators,
 } from '../Query';
 import { CalciteLabel } from '@esri/calcite-components-react';
+import { primaryLabelColor, valueLabelColor } from '../UniqueValues';
 
 // Dispose function
 function maybeDisposeRoot(divId: any) {
@@ -583,19 +584,48 @@ const Chart = ({ station, company, type }: any) => {
 
   return (
     <div>
-      <CalciteLabel>TOTAL PROGRESS</CalciteLabel>
+      <div
+        style={{
+          color: primaryLabelColor,
+          fontSize: '1.2rem',
+          marginLeft: '13px',
+          marginTop: '10px',
+          marginBottom: '-20px',
+        }}
+      >
+        TOTAL PROGRESS
+      </div>
       <CalciteLabel layout="inline">
-        <b className="totalProgressNumber">
+        <div
+          style={{
+            color: valueLabelColor,
+            fontSize: '2.7rem',
+            fontWeight: 'bold',
+            fontFamily: 'calibri',
+            lineHeight: '1.2',
+            marginLeft: '30px',
+          }}
+        >
           {thousands_separators(progress[1])} %
-          <img
-            src="https://EijiGorilla.github.io/Symbols/Utility_Logo.png"
-            alt="Utility Logo"
-            height={'23%'}
-            width={'23%'}
-            style={{ marginLeft: '70%', display: 'flex', marginTop: '-17%' }}
-          />
-          <div className="totalProgressNumber2">({thousands_separators(progress[0])})</div>
-        </b>
+        </div>
+        <div
+          style={{
+            color: valueLabelColor,
+            fontSize: '1rem',
+            fontFamily: 'calibri',
+            lineHeight: '1.2',
+            marginLeft: '30px',
+          }}
+        >
+          ({thousands_separators(progress[0])})
+        </div>
+        <img
+          src="https://EijiGorilla.github.io/Symbols/Utility_Logo.png"
+          alt="Utility Logo"
+          height={'75px'}
+          width={'75px'}
+          style={{ marginLeft: '70%', display: 'flex', marginTop: '-80px' }}
+        />
       </CalciteLabel>
 
       <div
@@ -606,6 +636,7 @@ const Chart = ({ station, company, type }: any) => {
           backgroundColor: 'rgb(0,0,0,0)',
           color: 'white',
           marginRight: '10px',
+          marginTop: '50px',
         }}
       ></div>
     </div>
