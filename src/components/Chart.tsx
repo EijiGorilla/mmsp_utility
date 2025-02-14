@@ -26,6 +26,7 @@ import {
 } from '../Query';
 import { CalciteLabel } from '@esri/calcite-components-react';
 import { primaryLabelColor, valueLabelColor } from '../UniqueValues';
+import { useDropdownContext } from './DropdownContext';
 
 // Dispose function
 function maybeDisposeRoot(divId: any) {
@@ -37,7 +38,12 @@ function maybeDisposeRoot(divId: any) {
 }
 
 // Draw chart
-const Chart = ({ station, company, type }: any) => {
+const Chart = () => {
+  const { stations, companySelected, utypes } = useDropdownContext();
+  const station = stations === null ? undefined : stations.field1;
+  const company = companySelected === null ? undefined : companySelected.name;
+  const type = utypes === null ? undefined : utypes.name;
+
   const legendRef = useRef<unknown | any | undefined>({});
   const chartRef = useRef<unknown | any | undefined>({});
   const [chartData, setChartData] = useState([]);
@@ -51,7 +57,7 @@ const Chart = ({ station, company, type }: any) => {
   const [lineFeatureLayer1, setLineFeatureLayer1] = useState<FeatureLayer>(utilityLineLayer);
 
   useEffect(() => {
-    if (type.name === 'Point') {
+    if (type === 'Point') {
       generateUtilPointChartData({ station, company }).then((response: any) => {
         setChartData(response);
       });
@@ -61,7 +67,7 @@ const Chart = ({ station, company, type }: any) => {
       });
 
       setFeatureLayer(utilityPointLayer1);
-    } else if (type.name === 'Line') {
+    } else if (type === 'Line') {
       generateUtilLineChartData({ station, company }).then((response: any) => {
         setChartData(response);
       });
@@ -71,7 +77,7 @@ const Chart = ({ station, company, type }: any) => {
       });
 
       setFeatureLayer(utilityLineLayer1);
-    } else if (type.name === undefined) {
+    } else if (type === undefined) {
       // Point + Line
       generatePointLineChartData({ station, company }).then((response: any) => {
         setChartData(response);
@@ -87,7 +93,7 @@ const Chart = ({ station, company, type }: any) => {
       setLineFeatureLayer1(utilityLineLayer);
       setPointFeatureLayer1(utilityPointLayer);
     }
-  }, [station, company, type, type.name]);
+  }, [station, company, type, type]);
 
   // type
   const types = [
@@ -325,7 +331,7 @@ const Chart = ({ station, company, type }: any) => {
         //
         const qStation = "Station1 = '" + station + "'";
         const qCompany = "Company = '" + company + "'";
-        const qType = "Type = '" + type.name + "'";
+        const qType = "Type = '" + type + "'";
         const qUtilType = 'UtilType = ' + typeSelect;
         const qStatus = 'Status = ' + selectedStatus;
         const qUtilTypeStatus = qUtilType + ' AND ' + qStatus;
@@ -338,7 +344,7 @@ const Chart = ({ station, company, type }: any) => {
           ? qUtilTypeStatus
           : station && !company
             ? qStationUtilTypeStatus
-            : station && company && !type.name
+            : station && company && !type
               ? qStationCompanyUtiltypeStatus
               : qStationCompanyUtiltypeStatusType;
 
@@ -352,7 +358,7 @@ const Chart = ({ station, company, type }: any) => {
           ', company: ',
           company,
           ', pointLine: ',
-          type.name,
+          type,
           ', Status: ',
           selectedStatus,
         );

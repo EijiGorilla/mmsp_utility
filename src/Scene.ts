@@ -121,7 +121,7 @@ const sources = [
 var searchWidget = new Search({
   view: view,
   locationEnabled: false,
-  allPlaceholder: 'Chainage or Utility ID',
+  allPlaceholder: 'Utility ID',
   includeDefaultSources: false,
   sources: sources,
 });

@@ -540,7 +540,7 @@ export async function generatePointLineChartData({ station, company }: any) {
     utilityPointLayer1.visible = true;
   };
 
-  if (station === '') {
+  if (station === undefined) {
     query.where = defaultExpression;
     utilityPointLayer.definitionExpression = defaultExpression;
     utilityPointLayer1.definitionExpression = defaultExpression;
@@ -772,7 +772,7 @@ export async function generateTotalProgress({ station, company }: any) {
   const qStationCompany = qStation + ' AND ' + qCompany;
   const finalExpression = station && !company ? qStation : qStationCompany;
 
-  if (station === '') {
+  if (station === undefined) {
     query.where = '1=1';
   } else {
     query.where = finalExpression;
